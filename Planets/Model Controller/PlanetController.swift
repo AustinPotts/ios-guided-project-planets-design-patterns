@@ -9,6 +9,29 @@
 import Foundation
 
 class PlanetController {
+    
+    var planets: [Planet] {
+        
+        var result = [
+                       Planet(name: "Mercury", imageName: "mercury"),
+                       Planet(name: "Venus", imageName: "venus"),
+                       Planet(name: "Earth", imageName: "earth"),
+                       Planet(name: "Mars", imageName: "mars"),
+                       Planet(name: "Jupiter", imageName: "jupiter"),
+                       Planet(name: "Saturn", imageName: "saturn"),
+                       Planet(name: "Uranus", imageName: "uranus"),
+                       Planet(name: "Neptune", imageName: "neptune"),
+        
+                            ]
+        
+        if UserDefaults.standard.bool(forKey: .shouldShowPlutoKey) {
+            result.append(Planet(name: "Pluto", imageName: "pluto"))
+        }
+        
+        return result
+        
+    }
+    
     var planetsWithoutPluto = [
         Planet(name: "Mercury", imageName: "mercury"),
         Planet(name: "Venus", imageName: "venus"),
